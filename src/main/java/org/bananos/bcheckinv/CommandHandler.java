@@ -12,7 +12,8 @@ public class CommandHandler implements CommandExecutor {
     private final ConfigManager configManager;
     private final PlayerInventoryTracker tracker;
 
-    public CommandHandler(BCheckInv plugin, InventoryManager inventoryManager, ConfigManager configManager, PlayerInventoryTracker tracker) {
+    public CommandHandler(BCheckInv plugin, InventoryManager inventoryManager,
+                          ConfigManager configManager, PlayerInventoryTracker tracker) {
         this.plugin = plugin;
         this.inventoryManager = inventoryManager;
         this.configManager = configManager;
@@ -20,9 +21,9 @@ public class CommandHandler implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Эта команда только для игроков!");
+            sender.sendMessage("Только для игроков!");
             return true;
         }
 
@@ -44,7 +45,7 @@ public class CommandHandler implements CommandExecutor {
             return true;
         }
 
-        inventoryManager.openInventoryMenu(player, target);
+        inventoryManager.openInventory(player, target);
         tracker.addViewer(player, target);
         return true;
     }
