@@ -1,0 +1,16 @@
+permissions:
+  use: "bcheckinv.use"
+  change: "bcheckinv.change"
+
+interface:
+  title: "Инвентарь %player%"
+  size: 54
+  glass_panes: [4, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+
+items:
+  glass_pane:
+    material: "ORANGE_STAINED_GLASS_PANE"
+    name: " "
+  close_button:
+    material: "BARRIER"
+    name: "&cЗакрыть"

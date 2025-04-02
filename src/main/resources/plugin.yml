@@ -1,0 +1,8 @@
+name: BCheckInv
+version: 0.1
+main: org.bananos.bcheckinv.BCheckInv
+api-version: 1.16
+commands:
+  invsee:
+    description: Просмотр инвентаря другого игрока с обновлением в реальном времени
+    usage: /invsee <игрок>

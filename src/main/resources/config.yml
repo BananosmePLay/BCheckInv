@@ -1,0 +1,28 @@
+messages:
+  no-permission-use: "&cУ вас нет прав на использование этой команды!"
+  no-permission-change: "&cУ вас нет прав на изменение инвентаря!"
+  player-not-found: "&cИгрок не найден или не в сети!"
+  usage: "&cИспользование: /invsee <ник игрока>"
+
+settings:
+  update-interval: 10  # Тики между обновлениями (20 = 1 секунда)
+
+panes:
+  material: "ORANGE_STAINED_GLASS_PANE"
+  name: " "
+
+buttons:
+  close:
+    material: "BARRIER"
+    name: "&cЗакрыть"
+
+slots:
+  helmet: 0
+  chestplate: 1
+  leggings: 2
+  boots: 3
+  main_hand: 5
+  off_hand: 6
+  close_button: 8
+  hotbar_start: 18
+  inventory_start: 27
