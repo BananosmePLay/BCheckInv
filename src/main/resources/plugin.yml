@@ -2,6 +2,8 @@ name: BCheckInv
 version: 0.1
 main: org.bananos.bcheckinv.BCheckInv
 api-version: 1.16
+authors: [Bananosme_Play]
+description: Плагин для просмотра инвентаря игроков
 commands:
   invsee:
     description: Просмотр инвентаря другого игрока с обновлением в реальном времени
