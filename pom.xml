@@ -6,7 +6,7 @@
 
     <groupId>org.bananos</groupId>
     <artifactId>BCheckInv</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
 
     <name>BCheckInv</name>
