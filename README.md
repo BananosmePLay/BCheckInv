@@ -1,4 +1,4 @@
-- Ru
+> Ru
 # BCheckInv - плагин для проверки инвенторя игроков
 
 ## Как установить
@@ -17,7 +17,7 @@
 - Показывает брону, основную руку и второстепенную
 
 
-- En
+> En
 # BCheckInv - Player Inventory Check Plugin  
 
 ## How to Install  
