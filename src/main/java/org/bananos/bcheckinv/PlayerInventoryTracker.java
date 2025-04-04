@@ -17,14 +17,11 @@ public class PlayerInventoryTracker implements Listener {
     private final ConfigManager configManager;
     private final Map<Player, Player> activeViews = new HashMap<>();
 
-    public PlayerInventoryTracker(BCheckInv plugin, InventoryManager inventoryManager, ConfigManager configManager) {
+    public PlayerInventoryTracker(BCheckInv plugin, InventoryManager inventoryManager,
+                                  ConfigManager configManager) {
         this.plugin = plugin;
         this.inventoryManager = inventoryManager;
         this.configManager = configManager;
-    }
-
-    public BCheckInv getPlugin() {
-        return plugin;
     }
 
     public void addViewer(Player viewer, Player target) {
@@ -56,10 +53,7 @@ public class PlayerInventoryTracker implements Listener {
     @EventHandler
     public void onClose(InventoryCloseEvent event) {
         if (event.getPlayer() instanceof Player) {
-            Player player = (Player) event.getPlayer();
-            if (isViewing(player)) {
-                removeViewer(player);
-            }
+            removeViewer((Player) event.getPlayer());
         }
     }
 
@@ -67,8 +61,9 @@ public class PlayerInventoryTracker implements Listener {
         activeViews.forEach((viewer, t) -> {
             if (t.equals(target) && viewer.isOnline()) {
                 InventoryView view = viewer.getOpenInventory();
-                if (view.getTitle().equals(configManager.getInventoryTitle(target))) {
-                    inventoryManager.updateInventory(target, view.getTopInventory());
+                if (view.getTopInventory().getSize() == 54 &&
+                        view.getTitle().equals(configManager.getInventoryTitle(target))) {
+                    inventoryManager.fillPlayerInventory(target, view.getTopInventory());
                     viewer.updateInventory();
                 }
             }

@@ -7,14 +7,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CommandHandler implements CommandExecutor {
-    private final BCheckInv plugin;
     private final InventoryManager inventoryManager;
     private final ConfigManager configManager;
     private final PlayerInventoryTracker tracker;
 
-    public CommandHandler(BCheckInv plugin, InventoryManager inventoryManager,
-                          ConfigManager configManager, PlayerInventoryTracker tracker) {
-        this.plugin = plugin;
+    public CommandHandler(InventoryManager inventoryManager,
+                          ConfigManager configManager,
+                          PlayerInventoryTracker tracker) {
         this.inventoryManager = inventoryManager;
         this.configManager = configManager;
         this.tracker = tracker;
@@ -23,13 +22,13 @@ public class CommandHandler implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Только для игроков!");
+            sender.sendMessage("Команда только для игроков!");
             return true;
         }
 
         Player player = (Player) sender;
 
-        if (!player.hasPermission("bcheckinv.use")) {
+        if (!player.hasPermission(configManager.getUsePermission())) {
             player.sendMessage(configManager.getMessage("no-permission-use"));
             return true;
         }
